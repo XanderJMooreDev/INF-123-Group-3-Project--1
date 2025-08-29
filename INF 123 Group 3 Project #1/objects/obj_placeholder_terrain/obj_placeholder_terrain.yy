@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"Object2",
+  "%Name":"obj_placeholder_terrain",
   "eventList":[],
   "managed":true,
-  "name":"Object2",
+  "name":"obj_placeholder_terrain",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_placeholder_box",
+    "path":"sprites/spr_placeholder_box/spr_placeholder_box.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
