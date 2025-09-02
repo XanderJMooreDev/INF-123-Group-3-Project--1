@@ -1,6 +1,11 @@
-RUN_SPEED = 8;
+RUN_SPEED = 2;
 JUMP_STRENGTH = 20;
 TERMINAL_SPEED = 20; // the fastest the player can fall
+TERMINAL_SPEED_X = 5;
+SLOWDOWN = .8;
+
+wallJumpTimer = 0;
+wallJumpJoystick = 0;
 
 respawnX = 512;
 respawnY = 320;
@@ -13,6 +18,7 @@ joystick = 0;
 weight = 1; // how fast the player falls
 coyoteTime = 0; // Frames since the player touched the ground
 
+velocityX = 0; // How fast the player is falling. Positive moves them down, negative is moving up
 velocityY = 0; // How fast the player is falling. Positive moves them down, negative is moving up
 
 jumpKey = ord("W"); // Allows us to change the player controls as we need
@@ -39,8 +45,17 @@ movement_update = function() {
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
 	
-	if space_is_free(joystick * RUN_SPEED, 0) {
-		x += joystick * RUN_SPEED;
+	if wallJumpTimer > 0 {
+		joystick = wallJumpJoystick;
+	}
+	
+	velocityX += joystick * RUN_SPEED;
+	
+	if velocityX > TERMINAL_SPEED_X {
+		velocityX = TERMINAL_SPEED_X;
+	}
+	else if velocityX < -TERMINAL_SPEED_X {
+		velocityX = -TERMINAL_SPEED_X;
 	}
 	
 	if keyboard_check(jumpKey) && coyoteTime < 5 {
@@ -62,8 +77,30 @@ movement_update = function() {
 		velocityY = 0;
 	}
 	
+	if space_is_free(velocityX, 0) {
+		x += velocityX;
+	}
+	else if keyboard_check(jumpKey) && coyoteTime > 10 && wallJumpTimer <= 0 {
+		velocityY = -JUMP_STRENGTH;
+		wallJumpJoystick = -joystick;
+		
+		if space_is_free(velocityX, 0) {
+			x += velocityX;
+		}
+		
+		wallJumpTimer = .4;
+	}
+	else {
+		velocityX = 0;
+	}
+	
 	coyoteTime++;
 	velocityY += weight;
+	velocityX *= SLOWDOWN;
+	
+	if wallJumpTimer > 0 {
+	wallJumpTimer -= 1 / game_get_speed(gamespeed_fps);
+	}
 	
 	if velocityY > TERMINAL_SPEED {
 		velocityY = TERMINAL_SPEED;
