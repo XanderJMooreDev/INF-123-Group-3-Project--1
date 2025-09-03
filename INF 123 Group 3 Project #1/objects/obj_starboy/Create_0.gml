@@ -4,6 +4,8 @@ TERMINAL_SPEED = 20; // the fastest the player can fall
 TERMINAL_SPEED_X = 5;
 SLOWDOWN = .8;
 
+shootingDir = 0;
+shootCountdown = 0;
 wallJumpTimer = 0;
 wallJumpJoystick = 0;
 
@@ -24,6 +26,7 @@ velocityY = 0; // How fast the player is falling. Positive moves them down, nega
 jumpKey = ord("W"); // Allows us to change the player controls as we need
 leftKey = ord("A");
 rightKey = ord("D");
+shootKey = vk_space;
 
 // This function checks if a specified location triggers a collision with specified
 // objects. 
@@ -37,10 +40,12 @@ movement_update = function() {
 	
 	if keyboard_check(leftKey) {
 		joystick -= 1;
+		facingDir = joystick;
 	}
 	
 	if keyboard_check(rightKey) {
 		joystick += 1;
+		facingDir = joystick;
 	}
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
@@ -102,11 +107,21 @@ movement_update = function() {
 	wallJumpTimer -= 1 / game_get_speed(gamespeed_fps);
 	}
 	
+	if shootCountdown > 0 {
+		shootCountdown -= 1 / game_get_speed(gamespeed_fps);
+	}
+	
 	if velocityY > TERMINAL_SPEED {
 		velocityY = TERMINAL_SPEED;
 	}
 	
-	if y > 800 {
+	if keyboard_check(shootKey) && shootCountdown <= 0 {
+		shootCountdown = 1;
+		bullet = instance_create_layer(x, y + 20, "Instances", obj_bullet);
+		bullet.facingDir = facingDir;
+	}
+	
+	if y > 800 || place_meeting(x, y, obj_enemy) {
 		x = respawnX;
 		y = respawnY;
 	}
