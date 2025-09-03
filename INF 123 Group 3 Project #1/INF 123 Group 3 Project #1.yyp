@@ -35,6 +35,7 @@
   },
   "name":"INF 123 Group 3 Project #1",
   "resources":[
+    {"id":{"name":"obj_placeholder_terrain_1","path":"objects/obj_placeholder_terrain_1/obj_placeholder_terrain_1.yy",},},
     {"id":{"name":"obj_placeholder_terrain","path":"objects/obj_placeholder_terrain/obj_placeholder_terrain.yy",},},
     {"id":{"name":"obj_starboy","path":"objects/obj_starboy/obj_starboy.yy",},},
     {"id":{"name":"room_test","path":"rooms/room_test/room_test.yy",},},
