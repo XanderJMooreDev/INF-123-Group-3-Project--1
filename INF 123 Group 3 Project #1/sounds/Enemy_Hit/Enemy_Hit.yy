@@ -13,7 +13,7 @@
   "name":"Enemy_Hit",
   "parent":{
     "name":"Enemy",
-    "path":"folders/Sounds/Enemy.yy",
+    "path":"folders/Sounds/Player/Enemy.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
