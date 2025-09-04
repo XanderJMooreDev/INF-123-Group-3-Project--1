@@ -38,7 +38,6 @@
   },
   "name":"INF 123 Group 3 Project #1",
   "resources":[
-<<<<<<< Updated upstream
     {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
     {"id":{"name":"obj_placeholder_terrain","path":"objects/obj_placeholder_terrain/obj_placeholder_terrain.yy",},},
@@ -58,17 +57,6 @@
     {"id":{"name":"Player_Wall_Jump","path":"sounds/Player_Wall_Jump/Player_Wall_Jump.yy",},},
     {"id":{"name":"Space","path":"sounds/Space/Space.yy",},},
     {"id":{"name":"spr_placeholder_box","path":"sprites/spr_placeholder_box/spr_placeholder_box.yy",},},
-=======
-<<<<<<< HEAD
-    {"id":{"name":"weeee","path":"extensions/weeee/weeee.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-=======
-    {"id":{"name":"obj_placeholder_terrain","path":"objects/obj_placeholder_terrain/obj_placeholder_terrain.yy",},},
-    {"id":{"name":"obj_starboy","path":"objects/obj_starboy/obj_starboy.yy",},},
-    {"id":{"name":"room_test","path":"rooms/room_test/room_test.yy",},},
-    {"id":{"name":"spr_placeholder_box","path":"sprites/spr_placeholder_box/spr_placeholder_box.yy",},},
->>>>>>> origin/main
->>>>>>> Stashed changes
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
