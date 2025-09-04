@@ -7,9 +7,9 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":3,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":7.5840135,
   "name":"Player_Steps",
   "parent":{
     "name":"Player",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Player_Steps",
+  "soundFile":"Player_Steps.mp3",
   "type":0,
   "volume":1.0,
 }

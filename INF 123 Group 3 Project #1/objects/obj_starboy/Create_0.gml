@@ -41,11 +41,27 @@ movement_update = function() {
 	if keyboard_check(leftKey) {
 		joystick -= 1;
 		facingDir = joystick;
+		if audio_is_playing(Player_Steps){
+		}
+		else{
+			audio_play_sound(Player_Steps,8,false);
+		}
+	}
+	if keyboard_check_released(leftKey){
+		audio_stop_sound(Player_Steps);
 	}
 	
 	if keyboard_check(rightKey) {
 		joystick += 1;
 		facingDir = joystick;
+		if audio_is_playing(Player_Steps){
+		}
+		else{
+			audio_play_sound(Player_Steps,8,false);
+		}
+	}
+	if keyboard_check_released(rightKey){
+		audio_stop_sound(Player_Steps);	
 	}
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
@@ -65,6 +81,7 @@ movement_update = function() {
 	
 	if keyboard_check(jumpKey) && coyoteTime < 5 {
 		velocityY = -JUMP_STRENGTH;
+		audio_play_sound(Player_Jump,8,false);
 	}
 	
 	if space_is_free(0, velocityY) {
@@ -119,6 +136,7 @@ movement_update = function() {
 		shootCountdown = 1;
 		bullet = instance_create_layer(x, y + 20, "Instances", obj_bullet);
 		bullet.facingDir = facingDir;
+		audio_play_sound(Player_Projectile,10,false);
 	}
 	
 	if y > 800 || place_meeting(x, y, obj_enemy) {

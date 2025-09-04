@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Player_Projectile",
+  "%Name":"Player_Jump",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.88800454,
-  "name":"Player_Projectile",
+  "duration":0.36571428,
+  "name":"Player_Jump",
   "parent":{
     "name":"Player",
     "path":"folders/Sounds/Player.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Player_Projectile.mp3",
+  "soundFile":"Player_Jump.mp3",
   "type":0,
   "volume":1.0,
 }
