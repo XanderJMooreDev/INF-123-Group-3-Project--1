@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 RUN_SPEED = 2;
 JUMP_STRENGTH = 20;
 TERMINAL_SPEED = 20; // the fastest the player can fall
@@ -9,11 +8,6 @@ shootingDir = 0;
 shootCountdown = 0;
 wallJumpTimer = 0;
 wallJumpJoystick = 0;
-=======
-RUN_SPEED = 8;
-JUMP_STRENGTH = 20;
-TERMINAL_SPEED = 20; // the fastest the player can fall
->>>>>>> Stashed changes
 
 respawnX = 512;
 respawnY = 320;
@@ -26,19 +20,13 @@ joystick = 0;
 weight = 1; // how fast the player falls
 coyoteTime = 0; // Frames since the player touched the ground
 
-<<<<<<< Updated upstream
 velocityX = 0; // How fast the player is falling. Positive moves them down, negative is moving up
-=======
->>>>>>> Stashed changes
 velocityY = 0; // How fast the player is falling. Positive moves them down, negative is moving up
 
 jumpKey = ord("W"); // Allows us to change the player controls as we need
 leftKey = ord("A");
 rightKey = ord("D");
-<<<<<<< Updated upstream
 shootKey = vk_space;
-=======
->>>>>>> Stashed changes
 
 // This function checks if a specified location triggers a collision with specified
 // objects. 
@@ -52,7 +40,6 @@ movement_update = function() {
 	
 	if keyboard_check(leftKey) {
 		joystick -= 1;
-<<<<<<< Updated upstream
 		facingDir = joystick;
 		if audio_is_playing(Player_Steps){
 		}
@@ -62,13 +49,10 @@ movement_update = function() {
 	}
 	if keyboard_check_released(leftKey){
 		audio_stop_sound(Player_Steps);
-=======
->>>>>>> Stashed changes
 	}
 	
 	if keyboard_check(rightKey) {
 		joystick += 1;
-<<<<<<< Updated upstream
 		facingDir = joystick;
 		if audio_is_playing(Player_Steps){
 		}
@@ -78,13 +62,10 @@ movement_update = function() {
 	}
 	if keyboard_check_released(rightKey){
 		audio_stop_sound(Player_Steps);	
-=======
->>>>>>> Stashed changes
 	}
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
 	
-<<<<<<< Updated upstream
 	if wallJumpTimer > 0 {
 		joystick = wallJumpJoystick;
 	}
@@ -96,18 +77,11 @@ movement_update = function() {
 	}
 	else if velocityX < -TERMINAL_SPEED_X {
 		velocityX = -TERMINAL_SPEED_X;
-=======
-	if space_is_free(joystick * RUN_SPEED, 0) {
-		x += joystick * RUN_SPEED;
->>>>>>> Stashed changes
 	}
 	
 	if keyboard_check(jumpKey) && coyoteTime < 5 {
 		velocityY = -JUMP_STRENGTH;
-<<<<<<< Updated upstream
 		audio_play_sound(Player_Jump,8,false);
-=======
->>>>>>> Stashed changes
 	}
 	
 	if space_is_free(0, velocityY) {
@@ -125,7 +99,6 @@ movement_update = function() {
 		velocityY = 0;
 	}
 	
-<<<<<<< Updated upstream
 	if space_is_free(velocityX, 0) {
 		x += velocityX;
 	}
@@ -154,16 +127,11 @@ movement_update = function() {
 	if shootCountdown > 0 {
 		shootCountdown -= 1 / game_get_speed(gamespeed_fps);
 	}
-=======
-	coyoteTime++;
-	velocityY += weight;
->>>>>>> Stashed changes
 	
 	if velocityY > TERMINAL_SPEED {
 		velocityY = TERMINAL_SPEED;
 	}
 	
-<<<<<<< Updated upstream
 	if keyboard_check(shootKey) && shootCountdown <= 0 {
 		shootCountdown = 1;
 		bullet = instance_create_layer(x, y + 20, "Instances", obj_bullet);
@@ -172,9 +140,6 @@ movement_update = function() {
 	}
 	
 	if y > 800 || place_meeting(x, y, obj_enemy) {
-=======
-	if y > 800 {
->>>>>>> Stashed changes
 		x = respawnX;
 		y = respawnY;
 	}
