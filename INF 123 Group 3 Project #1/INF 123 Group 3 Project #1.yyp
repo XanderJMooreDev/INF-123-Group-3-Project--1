@@ -43,6 +43,7 @@
     {"id":{"name":"obj_placeholder_terrain","path":"objects/obj_placeholder_terrain/obj_placeholder_terrain.yy",},},
     {"id":{"name":"obj_starboy","path":"objects/obj_starboy/obj_starboy.yy",},},
     {"id":{"name":"room_test","path":"rooms/room_test/room_test.yy",},},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"id":{"name":"Enemy_Hit","path":"sounds/Enemy_Hit/Enemy_Hit.yy",},},
     {"id":{"name":"Enemy_Projectile","path":"sounds/Enemy_Projectile/Enemy_Projectile.yy",},},
     {"id":{"name":"Enemy_Steps","path":"sounds/Enemy_Steps/Enemy_Steps.yy",},},
@@ -60,6 +61,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"room_test","path":"rooms/room_test/room_test.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

@@ -8,6 +8,7 @@ shootingDir = 0;
 shootCountdown = 0;
 wallJumpTimer = 0;
 wallJumpJoystick = 0;
+CanSpin=true;
 
 respawnX = 512;
 respawnY = 320;
@@ -17,7 +18,7 @@ image_blend = make_color_rgb(255, 255, 0);
 
 joystick = 0;
 
-weight = 1; // how fast the player falls
+weight = .75; // how fast the player falls
 coyoteTime = 0; // Frames since the player touched the ground
 
 velocityX = 0; // How fast the player is falling. Positive moves them down, negative is moving up
@@ -76,6 +77,7 @@ movement_update = function() {
 		if velocityY > 0 {
 			// If they're moving down, we tell the player that they've touched the ground
 			coyoteTime = 0;
+			CanSpin=true;
 		}
 		
 		// If we collide with a platform, up or down, we set movement to 0 to avoid sticking. 
@@ -98,6 +100,11 @@ movement_update = function() {
 	else {
 		velocityX = 0;
 	}
+	if coyoteTime>10 && keyboard_check(jumpKey) && CanSpin
+	{
+		CanSpin=false;
+		velocityY=-15;
+	}
 	
 	coyoteTime++;
 	velocityY += weight;
@@ -110,7 +117,9 @@ movement_update = function() {
 	if shootCountdown > 0 {
 		shootCountdown -= 1 / game_get_speed(gamespeed_fps);
 	}
-	
+    
+
+		
 	if velocityY > TERMINAL_SPEED {
 		velocityY = TERMINAL_SPEED;
 	}
@@ -125,4 +134,9 @@ movement_update = function() {
 		x = respawnX;
 		y = respawnY;
 	}
+	if y<0
+{
+	room_goto_next();
+	y=800
+}
 }
