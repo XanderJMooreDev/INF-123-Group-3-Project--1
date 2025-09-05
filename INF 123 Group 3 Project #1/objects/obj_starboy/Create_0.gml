@@ -129,7 +129,7 @@ movement_update = function() {
 	}
 	
 	if keyboard_check(shootKey) && shootCountdown <= 0 {
-		shootCountdown = 1;
+		shootCountdown = .5;
 		bullet = instance_create_layer(x, y + 20, "Instances", obj_bullet);
 		bullet.facingDir = facingDir;
 	}
