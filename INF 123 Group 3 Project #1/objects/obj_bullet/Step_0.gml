@@ -1,1 +1,1 @@
-x += 10 * facingDir;
+x += 30 * facingDir;

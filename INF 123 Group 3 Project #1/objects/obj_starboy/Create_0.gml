@@ -4,7 +4,8 @@ TERMINAL_SPEED = 20; // the fastest the player can fall
 TERMINAL_SPEED_X = 5;
 SLOWDOWN = .8;
 
-shootingDir = 0;
+shootingDir = 1;
+facingDir = 1;
 shootCountdown = 0;
 wallJumpTimer = 0;
 wallJumpJoystick = 0;
@@ -24,10 +25,10 @@ coyoteTime = 0; // Frames since the player touched the ground
 velocityX = 0; // How fast the player is falling. Positive moves them down, negative is moving up
 velocityY = 0; // How fast the player is falling. Positive moves them down, negative is moving up
 
-jumpKey = ord("W"); // Allows us to change the player controls as we need
+jumpKey = vk_space; // Allows us to change the player controls as we need
 leftKey = ord("A");
 rightKey = ord("D");
-shootKey = vk_space;
+shootKey = ord("E");
 
 // This function checks if a specified location triggers a collision with specified
 // objects. 
@@ -77,7 +78,8 @@ movement_update = function() {
 		if velocityY > 0 {
 			// If they're moving down, we tell the player that they've touched the ground
 			coyoteTime = 0;
-			CanSpin=true;
+			CanSpin = true;
+			show_debug_message(CanSpin);
 		}
 		
 		// If we collide with a platform, up or down, we set movement to 0 to avoid sticking. 
@@ -100,7 +102,7 @@ movement_update = function() {
 	else {
 		velocityX = 0;
 	}
-	if coyoteTime>10 && keyboard_check(jumpKey) && CanSpin
+	if coyoteTime > 20 && keyboard_check(jumpKey) && CanSpin
 	{
 		CanSpin=false;
 		velocityY=-15;
@@ -109,6 +111,8 @@ movement_update = function() {
 	coyoteTime++;
 	velocityY += weight;
 	velocityX *= SLOWDOWN;
+	
+	
 	
 	if wallJumpTimer > 0 {
 	wallJumpTimer -= 1 / game_get_speed(gamespeed_fps);
@@ -130,13 +134,20 @@ movement_update = function() {
 		bullet.facingDir = facingDir;
 	}
 	
-	if y > 800 || place_meeting(x, y, obj_enemy) {
+	if place_meeting(x, y, obj_enemy) {
 		x = respawnX;
 		y = respawnY;
 	}
+	
 	if y<0
-{
-	room_goto_next();
-	y=800
-}
+	{
+		room_goto_next();
+		y=799
+	}
+	
+	if y>800
+	{
+		room_goto_previous();
+		y=1
+	}
 }
