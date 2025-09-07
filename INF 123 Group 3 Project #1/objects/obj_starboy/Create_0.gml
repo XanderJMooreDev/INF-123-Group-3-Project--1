@@ -9,13 +9,25 @@ facingDir = 1;
 shootCountdown = 0;
 wallJumpTimer = 0;
 wallJumpJoystick = 0;
-CanSpin=true;
+canSpin=true;
+timeSinceSpin = 5;
+
+animationFrame = 0;
+
+state = "Standing";
+
+standSprite = spr_stand_temp;
+walkSprite = spr_walk_temp;
+spinSprite = spr_spin_temp;
+jumpSprite = spr_jump_temp;
+fallSprite = spr_fall_temp;
+shootSprite = spr_shoot_temp;
+
+spriteToUse = standSprite;
+spriteFrame = 0;
 
 respawnX = 512;
 respawnY = 320;
-
-// Makes the player appear yellow. Can be removed when we have a proper sprite
-image_blend = make_color_rgb(255, 255, 0);
 
 joystick = 0;
 
@@ -78,8 +90,7 @@ movement_update = function() {
 		if velocityY > 0 {
 			// If they're moving down, we tell the player that they've touched the ground
 			coyoteTime = 0;
-			CanSpin = true;
-			show_debug_message(CanSpin);
+			canSpin = true;
 		}
 		
 		// If we collide with a platform, up or down, we set movement to 0 to avoid sticking. 
@@ -102,35 +113,64 @@ movement_update = function() {
 	else {
 		velocityX = 0;
 	}
-	if coyoteTime > 20 && keyboard_check(jumpKey) && CanSpin
+	
+	if coyoteTime > 20 && keyboard_check(jumpKey) && canSpin
 	{
-		CanSpin=false;
+		canSpin=false;
+		timeSinceSpin = 0;
 		velocityY=-15;
+		
+		effect_create_layer("Instances", ef_star, x + 30, y + 35, 20, c_yellow);
+		effect_create_layer("Instances", ef_star, x + 30, y + 10, 10, c_yellow);
+		effect_create_layer("Instances", ef_star, x + 60, y + 40, 10, c_yellow);
+		effect_create_layer("Instances", ef_star, x, y + 40, 10, c_yellow);
+		effect_create_layer("Instances", ef_star, x + 45, y + 80, 10, c_yellow);
+		effect_create_layer("Instances", ef_star, x + 15, y + 80, 10, c_yellow);
+		
 	}
 	
 	coyoteTime++;
 	velocityY += weight;
 	velocityX *= SLOWDOWN;
-	
-	
+	if shootCountdown > .3 {
+		state = "Shooting";
+	}
+	else if coyoteTime < 8 {
+		if joystick = 0 {
+			state = "Standing";
+		}
+		else {
+			state = "Walking";
+		}
+	}
+	else if velocityY > 0 {
+		state = "Falling";
+	}
+	else if timeSinceSpin < 1 {
+		state = "Spinning";
+	}
+	else {
+		state = "Jumping";
+	}
 	
 	if wallJumpTimer > 0 {
-	wallJumpTimer -= 1 / game_get_speed(gamespeed_fps);
+		wallJumpTimer -= 1 / game_get_speed(gamespeed_fps);
 	}
 	
 	if shootCountdown > 0 {
 		shootCountdown -= 1 / game_get_speed(gamespeed_fps);
 	}
-    
 
-		
+	animationFrame += 10 / game_get_speed(gamespeed_fps);
+	timeSinceSpin += 7 / game_get_speed(gamespeed_fps);
+
 	if velocityY > TERMINAL_SPEED {
 		velocityY = TERMINAL_SPEED;
 	}
 	
 	if keyboard_check(shootKey) && shootCountdown <= 0 {
 		shootCountdown = .5;
-		bullet = instance_create_layer(x, y + 20, "Instances", obj_bullet);
+		bullet = instance_create_layer(x + 30 * facingDir, y + 20, "Instances", obj_bullet);
 		bullet.facingDir = facingDir;
 	}
 	
