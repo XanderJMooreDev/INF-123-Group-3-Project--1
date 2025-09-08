@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Enemy_Projectile",
+  "%Name":"Player_Boost",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.44408163,
-  "name":"Enemy_Projectile",
+  "duration":0.39183673,
+  "name":"Player_Boost",
   "parent":{
-    "name":"Enemy",
-    "path":"folders/Sounds/Enemy.yy",
+    "name":"Player",
+    "path":"folders/Sounds/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Enemy_Projectile.mp3",
+  "soundFile":"Player_Boost.mp3",
   "type":0,
   "volume":1.0,
 }

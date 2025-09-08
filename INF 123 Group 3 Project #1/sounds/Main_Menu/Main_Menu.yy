@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":173.6098,
   "name":"Main_Menu",
   "parent":{
     "name":"Soundtack",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Main_Menu",
+  "soundFile":"Main_Menu.mp3",
   "type":0,
   "volume":1.0,
 }

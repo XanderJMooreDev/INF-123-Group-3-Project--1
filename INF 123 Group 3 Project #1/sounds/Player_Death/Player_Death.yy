@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Enemy_Steps",
+  "%Name":"Player_Death",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
-  "name":"Enemy_Steps",
+  "duration":0.67918366,
+  "name":"Player_Death",
   "parent":{
-    "name":"Enemy",
-    "path":"folders/Sounds/Enemy.yy",
+    "name":"Player",
+    "path":"folders/Sounds/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Enemy_Steps",
+  "soundFile":"Player_Death.mp3",
   "type":0,
   "volume":1.0,
 }
