@@ -1,0 +1,2 @@
+x = respawnX;
+y = respawnY;
