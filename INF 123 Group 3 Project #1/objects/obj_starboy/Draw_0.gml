@@ -27,9 +27,9 @@ draw_sprite_ext(
     spriteToUse,         // sprite
     spriteFrame,        // sub-image (frame)
     x + 32,                  // x position
-    y + 32,                  // y position
-    facingDir,             // xscale → mirrors when -1
-    1,                  // yscale (no flip vertically)
+    y,                  // y position
+    facingDir * (1/4),             // xscale → mirrors when -1
+    1/4,                  // yscale (no flip vertically)
     0,                  // rotation
     c_white,            // color tint
     1                   // alpha
