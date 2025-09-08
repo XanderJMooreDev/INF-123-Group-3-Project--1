@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":7.5840135,
   "name":"Player_Steps",
   "parent":{
     "name":"Player",

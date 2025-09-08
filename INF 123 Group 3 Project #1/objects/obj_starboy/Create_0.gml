@@ -55,11 +55,27 @@ movement_update = function() {
 	if keyboard_check(leftKey) {
 		joystick -= 1;
 		facingDir = joystick;
+		if audio_is_playing(Player_Steps){
+		}
+		else{
+			audio_play_sound(Player_Steps,9,false);
+		}
+		if keyboard_check_released(leftKey){
+			audio_stop_sound(Player_Steps);
+		}
 	}
 	
 	if keyboard_check(rightKey) {
 		joystick += 1;
 		facingDir = joystick;
+		if audio_is_playing(Player_Steps){
+		}
+		else{
+			audio_play_sound(Player_Steps,9,false);
+		}
+		if keyboard_check_released(rightKey){
+			audio_stop_sound(Player_Steps);
+		}
 	}
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
@@ -79,6 +95,7 @@ movement_update = function() {
 	
 	if keyboard_check(jumpKey) && coyoteTime < 5 {
 		velocityY = -JUMP_STRENGTH;
+		audio_play_sound(Player_Jump,7,false);
 	}
 	
 	if space_is_free(0, velocityY) {
@@ -106,6 +123,7 @@ movement_update = function() {
 		
 		if space_is_free(velocityX, 0) {
 			x += velocityX;
+			audio_play_sound(Player_Jump,7,false);
 		}
 		
 		wallJumpTimer = .4;
@@ -126,6 +144,7 @@ movement_update = function() {
 		effect_create_layer("Instances", ef_star, x, y + 40, 10, c_yellow);
 		effect_create_layer("Instances", ef_star, x + 45, y + 80, 10, c_yellow);
 		effect_create_layer("Instances", ef_star, x + 15, y + 80, 10, c_yellow);
+		audio_play_sound(Player_Boost,7,false);
 		
 	}
 	
@@ -172,20 +191,28 @@ movement_update = function() {
 		shootCountdown = .5;
 		bullet = instance_create_layer(x + 30 * facingDir, y + 20, "Instances", obj_bullet);
 		bullet.facingDir = facingDir;
+		audio_play_sound(Player_Projectile,7,false);
 	}
 	
 	if place_meeting(x, y, obj_vertical_enemy) {
 		x = respawnX;
 		y = respawnY;
+		audio_play_sound(Player_Death,10,false);
 	}
 	
 	if y<0
 	{
 		room_goto_next();
 		y=799
+		audio_play_sound(Level_Complete,10,false);
+	}
+	if y>800 && room == room_test{
+		y = respawnY;
+		x = respawnX;
+		audio_play_sound(Player_Death,10,false);
 	}
 	
-	if y>800
+	else if y>800
 	{
 		room_goto_previous();
 		y=1

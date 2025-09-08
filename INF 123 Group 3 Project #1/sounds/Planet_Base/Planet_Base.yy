@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":88.70401,
   "name":"Planet_Base",
   "parent":{
     "name":"Soundtack",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Planet_Base",
+  "soundFile":"Planet_Base.mp3",
   "type":0,
   "volume":1.0,
 }
