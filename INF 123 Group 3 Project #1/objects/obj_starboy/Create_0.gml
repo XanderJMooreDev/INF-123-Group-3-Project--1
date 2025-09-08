@@ -174,7 +174,7 @@ movement_update = function() {
 		bullet.facingDir = facingDir;
 	}
 	
-	if place_meeting(x, y, obj_enemy) {
+	if place_meeting(x, y, obj_vertical_enemy) {
 		x = respawnX;
 		y = respawnY;
 	}
