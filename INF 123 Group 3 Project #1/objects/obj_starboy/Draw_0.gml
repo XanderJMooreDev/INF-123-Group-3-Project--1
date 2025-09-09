@@ -1,10 +1,10 @@
 if state == "Standing" {
 	spriteToUse = standSprite;
-	spriteFrame = 0;
+	spriteFrame = floor(animationFrame) % sprite_get_number(walkSprite);
 }
 if state == "Shooting" {
 	spriteToUse = shootSprite;
-	spriteFrame = 0;
+	spriteFrame = floor(animationFrame) % sprite_get_number(walkSprite);
 }
 else if state == "Falling" {
 	spriteToUse = fallSprite;
@@ -26,10 +26,10 @@ else if state == "Spinning" {
 draw_sprite_ext(
     spriteToUse,         // sprite
     spriteFrame,        // sub-image (frame)
-    x + 32,                  // x position
+    x + 16,                  // x position
     y,                  // y position
-    facingDir * (1/4),             // xscale → mirrors when -1
-    1/4,                  // yscale (no flip vertically)
+    facingDir * (1/8),             // xscale → mirrors when -1
+    1/8,                  // yscale (no flip vertically)
     0,                  // rotation
     c_white,            // color tint
     1                   // alpha

@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_placeholder_box",
-    "path":"sprites/spr_placeholder_box/spr_placeholder_box.yy",
+    "name":"spr_enemy_bullet",
+    "path":"sprites/spr_enemy_bullet/spr_enemy_bullet.yy",
   },
   "spriteMaskId":null,
   "visible":true,

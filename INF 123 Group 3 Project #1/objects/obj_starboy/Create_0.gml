@@ -1,6 +1,6 @@
 RUN_SPEED = 2;
-JUMP_STRENGTH = 20;
-TERMINAL_SPEED = 20; // the fastest the player can fall
+JUMP_STRENGTH = 10;
+TERMINAL_SPEED = 10; // the fastest the player can fall
 TERMINAL_SPEED_X = 5;
 SLOWDOWN = .8;
 
@@ -11,27 +11,29 @@ wallJumpTimer = 0;
 wallJumpJoystick = 0;
 canSpin=true;
 timeSinceSpin = 5;
+cannoning = "Ready";
 
 animationFrame = 0;
 
 state = "Standing";
 
-standSprite = spr_temp_starboy;
-walkSprite = spr_walk_temp;
-spinSprite = spr_spin_temp;
-jumpSprite = spr_jump_temp;
-fallSprite = spr_fall_temp;
-shootSprite = spr_shoot_temp;
+standSprite = spr_idle_pose;
+walkSprite = spr_walk_pose;
+spinSprite = spr_spin_pose;
+jumpSprite = spr_jump;
+fallSprite = spr_jump;
+shootSprite = spr_shoot_pose;
 
 spriteToUse = standSprite;
 spriteFrame = 0;
 
-respawnX = 512;
-respawnY = 320;
+respawnX = 160;
+respawnY = 672;
+respawnRoom = room1;
 
 joystick = 0;
 
-weight = .75; // how fast the player falls
+weight = .25; // how fast the player falls
 coyoteTime = 0; // Frames since the player touched the ground
 
 velocityX = 0; // How fast the player is falling. Positive moves them down, negative is moving up
@@ -102,7 +104,7 @@ movement_update = function() {
 		{
 			canSpin=false;
 			timeSinceSpin = 0;
-			velocityY=-15;
+			velocityY=-7.5;
 		
 			effect_create_layer("Instances", ef_star, x + 30, y + 35, 20, c_yellow);
 			effect_create_layer("Instances", ef_star, x + 30, y + 10, 10, c_yellow);
@@ -174,9 +176,10 @@ movement_update = function() {
 		bullet.facingDir = facingDir;
 	}
 	
-	if place_meeting(x, y, obj_vertical_enemy) {
-		x = respawnX;
-		y = respawnY;
+	if place_meeting(x, y, obj_vertical_enemy) || place_meeting(x, y, obj_horizontal_enemy) || place_meeting(x, y, obj_bullet_enemy) || place_meeting(x, y, obj_boss_projectile) {
+		if state != "Spinning" {
+			death();
+		}
 	}
 	
 	if y<0
@@ -187,7 +190,18 @@ movement_update = function() {
 	
 	if y>800
 	{
-		room_goto_previous();
-		y=1
+		if room == room1 {
+			death();
+		}
+		else {
+			room_goto_previous();
+			y=1
+		}
 	}
+}
+
+death = function() {
+	room = respawnRoom;
+	x = respawnX;
+	y = respawnY;
 }
