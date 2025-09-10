@@ -223,8 +223,13 @@ movement_update = function() {
 }
 
 death = function() {
+	if room == room_boss_fight {
+		obj_boss.phase = 1;
+	}
+	
 	room = respawnRoom;
 	x = respawnX;
 	y = respawnY;
+	
 	audio_play_sound(Player_Death,10,false);
 }
