@@ -11,8 +11,8 @@
   "name":"obj_shooter_enemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Enemies",
+    "path":"folders/Objects/Enemies.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_placeholder_box",
-    "path":"sprites/spr_placeholder_box/spr_placeholder_box.yy",
+    "name":"spr_eyeball",
+    "path":"sprites/spr_eyeball/spr_eyeball.yy",
   },
   "spriteMaskId":null,
   "visible":true,

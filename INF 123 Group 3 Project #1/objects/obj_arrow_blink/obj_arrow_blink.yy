@@ -9,8 +9,8 @@
   "name":"obj_arrow_blink",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Indicators",
+    "path":"folders/Objects/UI/Indicators.yy",
   },
   "parentObjectId":null,
   "persistent":false,

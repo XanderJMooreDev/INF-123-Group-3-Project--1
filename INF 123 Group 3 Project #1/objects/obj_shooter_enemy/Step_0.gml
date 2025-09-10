@@ -4,3 +4,5 @@ if obj_starboy.x > x {
 else {
 	facingDir = -1;
 }
+
+image_xscale = facingDir;

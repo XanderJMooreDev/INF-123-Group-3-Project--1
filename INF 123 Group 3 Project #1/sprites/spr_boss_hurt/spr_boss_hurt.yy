@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Boss",
-    "path":"folders/Sprites/Sprites/Boss.yy",
+    "path":"folders/Sprites/Finalized Visuals/Enemies/Boss.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
