@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Player_Steps",
+  "%Name":"Player_Steps1",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":7.5840135,
-  "name":"Player_Steps",
+  "duration":0.0,
+  "name":"Player_Steps1",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/Player.yy",
+    "name":"Player_Steps",
+    "path":"folders/Sounds/Player_Steps.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Player_Steps",
+  "soundFile":"Player_Steps1",
   "type":0,
   "volume":1.0,
 }
