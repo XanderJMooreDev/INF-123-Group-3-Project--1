@@ -13,7 +13,7 @@
   "name":"Player_Death",
   "parent":{
     "name":"Player",
-    "path":"folders/Sounds/Player.yy",
+    "path":"folders/Sounds/WORKING/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

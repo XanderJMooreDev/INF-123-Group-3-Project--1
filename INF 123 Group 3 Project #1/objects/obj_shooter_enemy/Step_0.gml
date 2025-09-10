@@ -5,4 +5,4 @@ else {
 	facingDir = -1;
 }
 
-image_xscale = facingDir;
+image_xscale = facingDir / 4;

@@ -9,11 +9,11 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.39183673,
+  "duration":0.7053061,
   "name":"Player_Boost",
   "parent":{
     "name":"Player",
-    "path":"folders/Sounds/Player.yy",
+    "path":"folders/Sounds/WORKING/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

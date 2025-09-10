@@ -1,4 +1,5 @@
 hp--;
+audio_play_sound(Player_Death,10,false);
 instance_destroy(other);
 sprite_index = spr_boss_core_hit;
 alarm[0] = 30;

@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Player_Steps1",
+  "%Name":"Explosion",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
-  "name":"Player_Steps1",
+  "duration":14.832018,
+  "name":"Explosion",
   "parent":{
-    "name":"Player_Steps",
-    "path":"folders/Sounds/Player_Steps.yy",
+    "name":"Enemy",
+    "path":"folders/Sounds/WORKING/Enemy.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Player_Steps1",
+  "soundFile":"Explosion.mp3",
   "type":0,
   "volume":1.0,
 }

@@ -13,13 +13,13 @@
   "name":"Player_Jump",
   "parent":{
     "name":"Player",
-    "path":"folders/Sounds/Player.yy",
+    "path":"folders/Sounds/WORKING/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Player_Jump",
+  "soundFile":"Player_Jump.mp3",
   "type":0,
   "volume":1.0,
 }

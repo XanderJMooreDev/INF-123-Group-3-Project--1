@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Planet_Astro",
+  "%Name":"Boss_Vacuum",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":90.82776,
-  "name":"Planet_Astro",
+  "duration":12.382041,
+  "name":"Boss_Vacuum",
   "parent":{
-    "name":"Soundtack",
-    "path":"folders/Sounds/Soundtack.yy",
+    "name":"Enemy",
+    "path":"folders/Sounds/WORKING/Enemy.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Planet_Astro.mp3",
+  "soundFile":"Boss_Vacuum.mp3",
   "type":0,
   "volume":1.0,
 }

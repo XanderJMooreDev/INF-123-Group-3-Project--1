@@ -12,8 +12,8 @@
   "duration":1.9591837,
   "name":"Level_Complete",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"SFX",
+    "path":"folders/Sounds/WORKING/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

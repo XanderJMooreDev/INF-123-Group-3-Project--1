@@ -1,2 +1,2 @@
-image_blend = make_color_rgb(255, 0, 0);
 velocityX = 4;
+image_yscale = 1/2;

@@ -58,20 +58,26 @@ movement_update = function() {
 		joystick -= 1;
 		facingDir = joystick;
 		
-		if !audio_is_playing(Player_Steps){
+		if !audio_is_playing(Player_Steps) && coyoteTime < 5{
 			audio_play_sound(Player_Steps,9,false);
 		}
 		
-		if keyboard_check_released(leftKey){
+		if keyboard_check_released(leftKey) || coyoteTime > 5 {
 			audio_stop_sound(Player_Steps);
 		}
-	}
-
 	}
 	
 	if keyboard_check(rightKey) {
 		joystick += 1;
 		facingDir = joystick;
+		
+		if !audio_is_playing(Player_Steps) && coyoteTime < 5{
+			audio_play_sound(Player_Steps,9,false);
+		}
+		
+		if keyboard_check_released(rightKey) || coyoteTime > 5 {
+			audio_stop_sound(Player_Steps);
+		}
 	}
 	// The above code checks whether the player wants to move left, right,
 	// or is pressing both, which will do the same as pressing neither.
@@ -91,7 +97,9 @@ movement_update = function() {
 	
 	if keyboard_check(jumpKey) && coyoteTime < 5 {
 		velocityY = -JUMP_STRENGTH;
-		audio_play_sound(Player_Jump,7,false);
+		if !audio_is_playing(Player_Jump){
+			audio_play_sound(Player_Jump,7,false);
+		}
 	}
 	
 	if space_is_free(0, velocityY) {
@@ -212,9 +220,11 @@ movement_update = function() {
 			y=1
 		}
 	}
+}
 
 death = function() {
 	room = respawnRoom;
 	x = respawnX;
 	y = respawnY;
+	audio_play_sound(Player_Death,10,false);
 }
